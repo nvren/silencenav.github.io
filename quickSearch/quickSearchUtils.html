@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>快搜解析工具箱</title>
+	<script type="text/javascript" src="../src/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="../src/bootstrap/dist/js/bootstrap.js"></script>
+	<link rel="stylesheet" href="../src/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<div class="form-group">
+					<label for="name">网站源码</label>
+					<textarea  id="htmlTextarea" class="form-control" rows="30"></textarea>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<div class="form-group">
+					<label for="name">结果</label>
+					<textarea id="result" class="form-control" rows="30"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<button type="button" class="btn btn-info" onclick="javascript:makeHtml();">生成</button>
+		</div>
+	</div>
+	<div id="html" style="display: none"></div>
+</body>
+
+
+
+
+
+<script type="text/javascript">
+	function makeHtml(){
+		try{
+			// 获取html内容
+			var html = $("#htmlTextarea").val();
+			// 转换成dom
+			var parser = new DOMParser();
+			var doc = parser.parseFromString(html, "text/html");
+ 			// 转换成jquery对象
+ 			var $v=$(doc); //jQuery对象
+
+ 			//解析数据
+ 			// <title>标签内容
+ 			var title = $v.find('title').text();
+ 			if (title.indexOf("快搜") > -1) {
+ 				title = '综合搜索';
+ 			}
+
+ 			//最后要生成的html
+ 			var myHtml = '';
+ 			//获取链接按钮
+ 			$v.find('#foo li').each(function(){
+ 				var url = $(this).find("a").attr("data");
+ 				var txt = $(this).find("a").text();
+ 				var img = $(this).find("img").attr("src");
+ 				// console.log(url + '---' + img);
+ 				if (url.indexOf('http') == -1) {
+ 					//处理谷歌学术这个特殊的问题
+ 					url = 'http://xs.chongbuluo.com/'+ url;
+ 				}
+ 				myHtml += '<button name="urlBtn" type="button" class="btn btn-link" onclick="goto(\''+url+'\');">'+txt+'</button>\n';
+ 				
+ 				
+ 			});
+
+ 			// alert(getHtml(title,myHtml));
+ 			$("#result").val(getHtml(title,myHtml));
+
+ 		}catch(e){
+ 			$("#result").val('出错啦！！！！！！！！！！！！！！');
+ 		}
+ 	}
+
+ 	function getHtml(title,linkHtml){
+ 		var htmlData = '';
+ 		htmlData += '<!DOCTYPE html>';
+ 		htmlData += '\n';
+ 		htmlData += '<html>';
+ 		htmlData += '\n';
+ 		htmlData += '<head>';
+ 		htmlData += '\n';
+ 		htmlData += '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
+ 		htmlData += '\n';
+ 		htmlData += '<title>'+ title +'</title>';
+ 		htmlData += '\n';
+ 		htmlData += '<script type="text/javascript" src="../src/jquery-1.9.1.js"><\/script>';
+ 		htmlData += '\n';
+ 		htmlData += '<script type="text/javascript" src="../src/bootstrap/dist/js/bootstrap.js"><\/script>';
+ 		htmlData += '\n';
+ 		htmlData += '<link rel="stylesheet" href="../src/bootstrap/dist/css/bootstrap.css">';
+ 		htmlData += '\n';
+ 		htmlData += '</head>';
+ 		htmlData += '\n';
+ 		htmlData += '<body style="background: #222222;width:100%">';
+ 		htmlData += '\n';
+ 		htmlData += '<div class="container" style="width:100%">';
+ 		htmlData += '\n';
+ 		htmlData += '<div class="row">';
+ 		htmlData += '\n';
+ 		htmlData += '<div id="leftNav" class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="padding: 0px;background: #263238;overflow:auto;" align="left" >';
+ 		htmlData += '\n';
+ 		htmlData += linkHtml;
+ 		htmlData += '</div>';
+ 		htmlData += '\n';
+ 		htmlData += '<div id="rightContent" class="col-xs-11 col-sm-11 col-md-11 col-lg-11" style="padding: 0px;background: #343434;overflow:hidden;" align="center">';
+ 		htmlData += '\n';
+ 		htmlData += '<button  type="button" class="btn btn-link" onclick="openNewTag();" style="height:30px;color:white">';
+ 		htmlData += '\n';
+ 		htmlData += '新标签中打开以下网址';
+ 		htmlData += '\n';
+ 		htmlData += '</button>';
+ 		htmlData += '\n';
+ 		htmlData += '<iframe id="myFrame" src="https://www.baidu.com" width="100%" frameborder="no" border="0"></iframe>';
+ 		htmlData += '\n';
+ 		htmlData += '</div>';
+ 		htmlData += '\n';
+ 		htmlData += '</div>';
+ 		htmlData += '\n';
+ 		htmlData += '</div>';
+ 		htmlData += '\n';
+ 		htmlData += '</div>';
+ 		htmlData += '\n';
+ 		htmlData += '</div>';
+ 		htmlData += '\n';
+ 		htmlData += '</body>';
+ 		htmlData += '\n';
+ 		htmlData += '<script type="text/javascript">';
+ 		htmlData += '\n';
+ 		htmlData += '	$(function(){';
+ 		htmlData += '\n';
+ 		htmlData += '		var h = $(window).height();';
+ 		htmlData += '\n';
+ 		htmlData += '		$("#rightContent").height(h);';
+ 		htmlData += '\n';
+ 		htmlData += '		$("#leftNav").height(h);';
+ 		htmlData += '\n';
+ 		htmlData += '		$("#myFrame").height(h - 30);';
+ 		htmlData += '\n';
+ 		htmlData += '	});';
+ 		htmlData += '\n';
+ 		htmlData += '	function openNewTag(){';
+ 		htmlData += '\n';
+ 		htmlData += '		window.open($("#myFrame").attr("src")); ';
+ 		htmlData += '\n';
+ 		htmlData += '	}';
+ 		htmlData += '\n';
+ 		htmlData += '	$("button[name=\'urlBtn\']").css("color","#95a5a6");';
+ 		htmlData += '\n';
+ 		htmlData += '	function goto(url){';
+ 		htmlData += '\n';
+ 		htmlData += '		$("#myFrame").attr("src",url);';
+ 		htmlData += '\n';
+ 		htmlData += '	}';
+ 		htmlData += '\n';
+ 		htmlData += '<\/script>';
+ 		htmlData += '\n';
+ 		htmlData += '</html>';
+ 		htmlData += '\n';
+ 		return htmlData;
+ 	}
+ </script>
+ </html>

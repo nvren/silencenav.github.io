@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图搜 - 让图片搜索更简单</title>
+<script type="text/javascript" src="../src/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="../src/bootstrap/dist/js/bootstrap.js"></script>
+<link rel="stylesheet" href="../src/bootstrap/dist/css/bootstrap.css">
+</head>
+<body style="background: #222222;width:100%">
+<div class="container" style="width:100%">
+<div class="row">
+<div id="leftNav" class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="padding: 0px;background: #263238;overflow:auto;" align="left" >
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.easyicon.net/');">EasyIcon</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://sucai.zcool.com.cn/');">站酷素材</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://sucai.sogou.com/');">搜狗素材</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.hituyu.com/');">网页背景</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://pixabay.com/');">Pixabay</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://shitu.baidu.com/');">百度识图</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://www.tineye.com/');">TinEye</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://ggso.in/imghp');">谷歌图搜</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://vector.me/');">Vector</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://findicons.com/');">FindIcons</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.iconfont.cn/');">IconFont</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.iconarchive.com/');">IconArchive</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://cn.freeimages.com/');">FreeImages</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://pngimg.com/img/vegetables');">PngImg</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.veryicon.com/');">VeryIcon</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://foter.com/');">Foter</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.morguefile.com/');">MorgueFile</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.picfindr.com/');">PicFindr</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.incogna.com/#random');">Incogna</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://visualhunt.com/');">VisualHunt</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://www.myfonts.com/WhatTheFont/');">WhatTheFont</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.freepik.com/');">Freepik</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.iconseeker.com/');">IconSeeker</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://ui-cloud.com/');">UICloud</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://icongal.com/');">IconGallery</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://saucenao.com/');">SauceNAO</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://icons8.com/');">Icons8</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://ascii2d.net/');">动漫反向搜索</button>
+</div>
+<div id="rightContent" class="col-xs-11 col-sm-11 col-md-11 col-lg-11" style="padding: 0px;background: #343434;overflow:hidden;" align="center">
+<button  type="button" class="btn btn-link" onclick="openNewTag();" style="height:30px;color:white">
+新标签中打开以下网址
+</button>
+<iframe id="myFrame" src="https://www.baidu.com" width="100%" frameborder="no" border="0"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		var h = $(window).height();
+		$("#rightContent").height(h);
+		$("#leftNav").height(h);
+		$("#myFrame").height(h - 30);
+	});
+	function openNewTag(){
+		window.open($("#myFrame").attr("src")); 
+	}
+	$("button[name='urlBtn']").css("color","#95a5a6");
+	function goto(url){
+		$("#myFrame").attr("src",url);
+	}
+</script>
+</html>

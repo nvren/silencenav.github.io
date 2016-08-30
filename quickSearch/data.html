@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>数据搜索 - 让数据搜索更简单</title>
+<script type="text/javascript" src="../src/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="../src/bootstrap/dist/js/bootstrap.js"></script>
+<link rel="stylesheet" href="../src/bootstrap/dist/css/bootstrap.css">
+</head>
+<body style="background: #222222;width:100%">
+<div class="container" style="width:100%">
+<div class="row">
+<div id="leftNav" class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="padding: 0px;background: #263238;overflow:auto;" align="left" >
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://index.baidu.com/');">百度指数</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://data.weibo.com/index');">微指数</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://index.1688.com/');">阿里指数</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://index.youku.com/');">视频指数</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://zhishu.sogou.com/');">搜狗指数</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://datamodel.bitauto.com/');">汽车指数</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://data.stats.gov.cn/');">国家数据</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.talkingdata.com/index/#/mobileIndex/zh_cn');">移动观象台</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.cbooo.cn/');">票房数据</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://map.norsecorp.com/');">网络攻击</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://vis.360.cn/open/fishsite/');">网络诈骗</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://heat.qq.com/qianxi.php');">腾讯位置大数据</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://report.amap.com/');">城市交通</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://app2.sfda.gov.cn/datasearchp/gzcxSearch.do');">食品药品</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://db.yaozh.com/');">药智数据</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.ganji.com/hangqing/');">二手市场</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://trends.baidu.com/ncee');">高考预测</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://pro.eye.kuyun.com/');">酷云 EYE</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://index.iqiyi.com/');">爱奇艺指数</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://tongji.baidu.com/data/district');">百度统计</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.nasdaq.com/zh');">纳斯达克指数</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.umindex.com/');">友盟指数</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.nsii.org.cn/');">标本</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.cfh.ac.cn/Spdb/spsearch.aspx?aname=&AspxAutoDetectCookieSupport=1');">物种</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.qgtong.com/so/Search.asp');">海关百搜</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.iso315.org/');">防伪数据</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://openlaw.cn/');">OpenLaw</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://data.worldbank.org.cn/');">世界银行</button>
+</div>
+<div id="rightContent" class="col-xs-11 col-sm-11 col-md-11 col-lg-11" style="padding: 0px;background: #343434;overflow:hidden;" align="center">
+<button  type="button" class="btn btn-link" onclick="openNewTag();" style="height:30px;color:white">
+新标签中打开以下网址
+</button>
+<iframe id="myFrame" src="https://www.baidu.com" width="100%" frameborder="no" border="0"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		var h = $(window).height();
+		$("#rightContent").height(h);
+		$("#leftNav").height(h);
+		$("#myFrame").height(h - 30);
+	});
+	function openNewTag(){
+		window.open($("#myFrame").attr("src")); 
+	}
+	$("button[name='urlBtn']").css("color","#95a5a6");
+	function goto(url){
+		$("#myFrame").attr("src",url);
+	}
+</script>
+</html>

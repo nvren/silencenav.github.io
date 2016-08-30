@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>综合搜索</title>
+	<script type="text/javascript" src="../src/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="../src/bootstrap/dist/js/bootstrap.js"></script>
+	<link rel="stylesheet" href="../src/bootstrap/dist/css/bootstrap.css">
+</head>
+<body style="background: #222222;width:100%">
+	<div class="container" style="width:100%">
+		<div class="row">
+			<div id="leftNav" class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="padding: 0px;background: #263238;overflow:auto;" align="left" >
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.chongbuluo.com/google.html');">Google</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.chongbuluo.com/cngoogle.html');">谷歌</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://www.baidu.com/');">百度</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://global.bing.com/?FORM=HPCNEN&setmkt=en-us&setlang=en-us');">Bing</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://cn.bing.com/');">必应</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.chongbuluo.com/weibo.html');">微博</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://weixin.sogou.com/?p=73141200&kw=');">搜狗微信</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://zhihu.sogou.com/');">搜狗知乎</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://map.baidu.com/');">百度地图</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.amap.com/');">高德地图</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.wdl.org/zh/');">世图</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://s.taobao.com/');">淘宝</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.pailitao.com/');">拍立淘</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('/wiki.html');">Wikipedia</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.baichuang.in/wiki/Wikipedia:%E9%A6%96%E9%A1%B5');">维基百科</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.easyicon.net/');">图标</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://sucai.zcool.com.cn/');">素材</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.jiumodiary.com/');">电子书</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://zh.bookzz.org/');">BookZZ</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://www.panc.cc/');">胖次</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://cn.godht.com/Top100/');">种子</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://m.kuaidi100.com/');">快递</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.zhaogepu.com/');">找歌谱</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://nyaso.com/');">动漫资源</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.kisssub.org/');">动漫 BT</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('/moe.html');">萌娘百科</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.chashenjia.com/indexold.html');">查身价</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://shapecatcher.com/');">特殊符号识别</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://xs.bing.com/');">必应学术</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://xs.chongbuluo.com/scholar.html');">谷歌学术</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.mbalib.com/');">MBA智库</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.midomi.com/');">听音识曲</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://visualhunt.com/');">Visual Hunt</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.sogou.com/tupu/person.html?q=%E8%B5%B5%E4%B8%BD%E9%A2%96');">人物关系</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://weijp.library.sh.cn/mobileinto.html');">姓氏家谱</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.zdic.net/');">汉典</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.vividict.com/Default.aspx');">象形文字</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.guoxuedashi.com/zidian/bujian/');">国学</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://122.200.75.13');">古文献</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://assrt.net/');">字幕</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://search.bilibili.com/');">哔哩哔哩</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.soku.com/');">视频</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://b1bj.com/');">比一比价</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.xitie.com/');">商品历史价格</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.boxz.com/');">数码电器比价</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://home.meishichina.com/search/');">美食美味</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://g.jikewenku.cn/imghp');">谷歌搜图</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://stu.baidu.com/');">百度识图</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://www.tineye.com/');">Tineye</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://www.what-dog.net/');">狗狗识别器</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.qiuziti.com/');">求字体</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://symbolhound.com/');">编程符号</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://www.openhub.net/');">开源代码</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.innojoy.com/search/index.shtml');">专利检索</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.andaike.com/');">安贷客</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.cheyisou.com/');">易车</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.qiujieda.com/');">求解答</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.open-open.com/doc/');">开源文献</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.similarsitesearch.com/cn/');">类似网站</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://awesomecow.com/');">Linux软件</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.anychem.com/');">化工</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.chembing.com/');">化学</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.ichemistry.cn/structure.asp');">化学结构式</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.tianyancha.com/');">查企业</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://tradesou.com/');">外贸</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://chs.so/');">海关</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.findsounds.com/ISAPI/search.dll?keywords=computer+keyboard+typing');">声音</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.csres.com/');">国家标准</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.wolframalpha.com/');">Wolfram Alpha</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://zhaoren.idtag.cn/');">同名同姓</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.luetour.com/');">游记</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.zoomeye.org/');">网络空间</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.alldatasheetcn.com/');">电子元件数据</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://123.baidu.com/');">老年</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://oscobo.co.uk/');">Oscobo</button>
+				<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.chinaso.com/');">中国搜索</button>
+			</div>
+			<div id="rightContent" class="col-xs-11 col-sm-11 col-md-11 col-lg-11" style="padding: 0px;background: #343434;overflow:hidden;" align="center">
+				<button  type="button" class="btn btn-link" onclick="openNewTag();" style="height:30px;color:white">
+					新标签中打开以下网址
+				</button>
+				<iframe id="myFrame" src="https://www.baidu.com" width="100%" frameborder="no" border="0"></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		var h = $(window).height();
+		$("#rightContent").height(h);
+		$("#leftNav").height(h);
+		$("#myFrame").height(h - 30);
+	});
+	function openNewTag(){
+		window.open($("#myFrame").attr("src")); 
+	}
+	$("button[name='urlBtn']").css("color","#95a5a6");
+	function goto(url){
+		$("#myFrame").attr("src",url);
+	}
+</script>
+</html>

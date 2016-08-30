@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>磁力搜索</title>
+<script type="text/javascript" src="../src/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="../src/bootstrap/dist/js/bootstrap.js"></script>
+<link rel="stylesheet" href="../src/bootstrap/dist/css/bootstrap.css">
+</head>
+<body style="background: #222222;width:100%">
+<div class="container" style="width:100%">
+<div class="row">
+<div id="leftNav" class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="padding: 0px;background: #263238;overflow:auto;" align="left" >
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://btlibrary.me/');">BTLibrary</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('https://www.panc.cc/');">胖次</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://cn.godht.com/');">GoDHT</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.xilinjie.com/');">西林街</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.v1248.com/index.htm');">百度网盘</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://search.bilibili.com/');">哔哩哔哩</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.atugu.com/');">阿土古</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.1024bt.net/');">BT核工厂</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.btkeyy.com');">BT樱桃</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.tokyotosho.info/');">东京图书馆</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://md5.daimugua.com/');">呆木瓜</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://www.verypan.com/');">VeryPan</button>
+<button name="urlBtn" type="button" class="btn btn-link" onclick="goto('http://assrt.net/');">字幕</button>
+</div>
+<div id="rightContent" class="col-xs-11 col-sm-11 col-md-11 col-lg-11" style="padding: 0px;background: #343434;overflow:hidden;" align="center">
+<button  type="button" class="btn btn-link" onclick="openNewTag();" style="height:30px;color:white">
+新标签中打开以下网址
+</button>
+<iframe id="myFrame" src="https://www.baidu.com" width="100%" frameborder="no" border="0"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		var h = $(window).height();
+		$("#rightContent").height(h);
+		$("#leftNav").height(h);
+		$("#myFrame").height(h - 30);
+	});
+	function openNewTag(){
+		window.open($("#myFrame").attr("src")); 
+	}
+	$("button[name='urlBtn']").css("color","#95a5a6");
+	function goto(url){
+		$("#myFrame").attr("src",url);
+	}
+</script>
+</html>

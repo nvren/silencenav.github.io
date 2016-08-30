@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>ios-JSON工具箱</title>
+	<script type="text/javascript" src="../src/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="../src/bootstrap/dist/js/bootstrap.js"></script>
+	<link rel="stylesheet" href="../src/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<div class="form-group">
+					<label for="name">JSON字符串</label>
+					<textarea  id="jsonTextarea" class="form-control" rows="30"></textarea>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<div class="form-group">
+					<label for="name">结果</label>
+					<textarea id="result" class="form-control" rows="30"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<button type="button" class="btn btn-info" onclick="javascript:jsonFormat();">JSON格式化</button>
+			<button type="button" class="btn btn-primary" onclick="javascript:jsonToOCObject();">转换成OC对象</button>
+		</div>
+	</div>
+</body>
+
+
+
+
+
+<script type="text/javascript">
+	// 格式化json
+	function jsonFormat(){
+		try{
+			var data = JSON.stringify(JSON.parse($("#jsonTextarea").val()), null, "\t");
+			$("#result").val(data);
+		}catch(e){
+			$("#result").val('出错啦！！！！！！！！！！！！！！');
+		}
+	}
+</script>
+
+<script type="text/javascript">
+	// json 转OC对象
+	function jsonToOCObject(){
+		// alert("jsonToOc");
+		// 转成json对象
+		try{
+			var jsonDatas = JSON.parse($("#jsonTextarea").val());
+			var ocStr = analysisData(jsonDatas,'');
+			$("#result").val(ocStr);
+		}catch(e){
+			$("#result").val('出错啦！！！！！！！！！！！！！！');
+		}
+		
+	}
+
+
+	function analysisData(jsonData,space){
+		var ocObj = '';
+		for(var key in jsonData){  
+			// alert(key);
+			var data = jsonData[key];
+
+			if(data == null){
+				ocObj += space +'@property (nonatomic, strong) NSString *' + key + ';\n';
+				continue;
+			}
+
+			if(data.constructor==Number){
+				// alert(key +"是类型Number");
+				ocObj += space +'@property (nonatomic, strong) NSNumber *' + key + ';\n';
+				continue;
+			}
+			if(data.constructor==String){
+				// alert(key +"是类型String");
+				ocObj += space+'@property (nonatomic, strong) NSString *' + key + ';\n';
+				continue;
+			}
+			if(data.constructor==Array){
+				// alert(key +"是类型array");
+				ocObj += space+ '\n@property (nonatomic, strong) NSArray *' + key + '; //ocOBJ Array\n';
+				ocObj += space+'[{\n';
+				if (data.length > 0) {
+					ocObj += space+analysisData(data[0],'\t');
+				}
+				ocObj += space+'}]\n\n';
+				continue;
+			}
+			if(data.constructor==Object){
+				// alert(key +"是类型Object");
+				var objKey = key.replace(/(\w)/,function(v){return v.toUpperCase()}); // 首字母大写
+				ocObj += (space+'@property (nonatomic, strong) '+objKey+' *' + key + '; //ocOBJ\n');
+				ocObj += space+'{\n';
+				
+				ocObj += space+ analysisData(data,'\t');
+				
+				ocObj += space+'}\n\n';
+				continue;
+			}
+		} 
+		return ocObj;
+	}
+</script>
+</html>
